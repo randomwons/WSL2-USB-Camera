@@ -50,4 +50,4 @@ HOST_USERNAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f5)
 sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/usbip-bzImage
 
 echo "[wsl2]" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
-echo "kernel=C:\\Users\\${HOST_USERNAME}\\usbip-bzImage" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
+echo "kernel=C:\\\\Users\\\\${HOST_USERNAME}\\\\usbip-bzImage" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
