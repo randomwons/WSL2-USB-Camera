@@ -27,7 +27,7 @@ git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
 cd WSL2-Linux-Kernel
 git checkout linux-msft-wsl-${VERSION}
 
-wget https://github.com/randomwons/wsl2-camera/blob/main/config
+wget https://raw.githubusercontent.com/randomwons/wsl2-camera/main/config
 sudo mv config .config
 
 
