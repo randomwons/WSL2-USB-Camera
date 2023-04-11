@@ -26,8 +26,8 @@ git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
 cd WSL2-Linux-Kernel
 git checkout linux-msft-wsl-${VERSION}
 
-wget https://raw.githubusercontent.com/randomwons/wsl2-camera/main/config
-sudo mv config .config
+# config
+sudo mv ../config .config
 
 
 # Build and install kernel
