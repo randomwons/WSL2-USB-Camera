@@ -7,7 +7,6 @@ sudo apt-get -y upgrade
 # Install required packages
 sudo apt-get -y install \ 
   build-essential \
-  git \
   flex \ 
   bison \
   libssl-dev \
