@@ -45,6 +45,7 @@ sudo make install -j$(nproc)
 sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
 
 # Copy kerner image to Windows
+cd ../../..
 HOST_USERNAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f5)
 sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/usbip-bzImage
 
