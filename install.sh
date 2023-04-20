@@ -5,20 +5,7 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 # Install required packages
-sudo apt-get -y install \ 
-  build-essential \
-  flex \ 
-  bison \
-  libssl-dev \
-  libelf-dev \
-  libncurses-dev \
-  autoconf \
-  libudev-dev \
-  libtool \
-  dwarves \
-  bc \
-  wslu \
-  hwdata
+sudo apt-get -y install build-essential flex bison libssl-dev libelf-dev libncurses-dev autoconf libudev-dev libtool dwarves bc wslu hwdata
 
 # Get kernel version checkout the corresponding branch
 VERSION=$(uname -r | cut -d '-' -f1)
@@ -31,9 +18,7 @@ sudo mv ../config .config
 
 
 # Build and install kernel
-sudo make -j$(nproc) \
-  && sudo make modules_install -j$(nproc) \
-  && sudo make install -j$(nproc)
+sudo make -j$(nproc) && sudo make modules_install -j$(nproc) && sudo make install -j$(nproc)
 
 # Install USBIP
 cd tools/usb/usbip
