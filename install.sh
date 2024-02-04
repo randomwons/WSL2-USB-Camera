@@ -27,6 +27,8 @@ sudo scripts/config --enable CONFIG_USB_VIDEO_CLASS
 sudo scripts/config --enable CONFIG_USB_VIDEO_CLASS_INPUT_EVDEV
 sudo scripts/config --enable CONFIG_USB_GSPCA
 
+sudo make olddefconfig
+
 # Build and install kernel
 sudo make -j$(nproc) && sudo make modules_install -j$(nproc) && sudo make install -j$(nproc)
 
