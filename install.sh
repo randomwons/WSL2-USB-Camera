@@ -9,7 +9,7 @@ sudo apt-get -y install build-essential flex bison libssl-dev libelf-dev libncur
 
 # Get kernel version checkout the corresponding branch
 VERSION=$(uname -r | cut -d '-' -f1)
-git clone -b linux-msft-wsl-${VERSION} https://github.com/microsoft/WSL2-Linux-Kernel.git
+git clone --depth 1 -b linux-msft-wsl-${VERSION} https://github.com/microsoft/WSL2-Linux-Kernel.git
 cd WSL2-Linux-Kernel
 
 # config
