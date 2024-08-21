@@ -1,23 +1,11 @@
 # WSL2-USB-Camera
 All content has been referenced from [Microsoft Connect USB](https://learn.microsoft.com/ko-kr/windows/wsl/connect-usb).
 
-모든 내용은 [Microsoft Connect USB](https://learn.microsoft.com/ko-kr/windows/wsl/connect-usb)를 참조하였습니다.
-
-
-## Prerequisites
-- Running windows 11 (Build 22000 or later), (Windows 10 support is possible, [Note this](https://learn.microsoft.com/en-gb/windows/wsl/connect-usb).)
-- Windows 11 실행(빌드 22000 이상) (Windows 10 지원 가능, [참조](https://learn.microsoft.com/ko-kr/windows/wsl/connect-usb).)
-- A machine with an x64/x84 processor is required. (Arm64 is currently not supported with usbipd-win).
-- x64/x84 프로세서가 있는 컴퓨터가 필요합니다. (Arm64는 현재 usbipd-win에 지원되지 않습니다.)
-- Linux distribution installed and set to WSL2
-- Linux 배포판이 설치되고 WSL 2로 설정됩니다.
-- Running Linx kernerl 5.10.60.1 or later.
-- Linux 커널 5.10.60.1 이상을 실행합니다.
+# Tutorial Video
+https://github.com/user-attachments/assets/91ec81fe-9d36-419f-bb28-0ead81061b8a
 
 ## Install WSL2
 Before installing WSL2, check if CPU virtualization is enabled and if Hyper-V is supported.
-
-WSL2를 설치하기 전에 CPU의 가상화가 켜져있는지, Hyper-V를 지원하는지 확인.
 
 <img src="images/hyperv.png" width="70%" height="70%"/>
 
@@ -80,7 +68,7 @@ sudo apt-get -y install build-essential flex bison libssl-dev libelf-dev libncur
 In WSL2 terminal, clone a repository of WSL2-Linux-Kernel
 ```bash
 WSL_VERSION=$(uname -r | cut -d '-' -f1)
-git clone -b linux-msft-wsl-${WSL_VERSION} https://github.com/microsoft/WSL2-Linux-Kernel.git
+git clone --depth 1 -b linux-msft-wsl-${WSL_VERSION} https://github.com/microsoft/WSL2-Linux-Kernel.git
 cd WSL2-Linux-Kernerl
 ```
 Copy config.gz
@@ -107,20 +95,11 @@ sudo make olddefconfig
 
 build
 ```bash
+sudo make modules -j$(nproc)
+sudo make modules_install
 sudo make -j$(nproc)
-sudo make modules_install -j$(nproc)
-sudo make install -j$(nproc)
+sudo make install
 ```
-
-Install usbipd library
-```bash
-cd tools/usb/usbip
-sudo ./autogen.sh
-sudo ./configure
-sudo make install -j$(nproc)
-sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
-```
-
 Copy bzImage to Host PC(windows)
 
 ```bash
