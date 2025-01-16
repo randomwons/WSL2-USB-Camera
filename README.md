@@ -69,7 +69,7 @@ In WSL2 terminal, clone a repository of WSL2-Linux-Kernel
 ```bash
 WSL_VERSION=$(uname -r | cut -d '-' -f1)
 git clone --depth 1 -b linux-msft-wsl-${WSL_VERSION} https://github.com/microsoft/WSL2-Linux-Kernel.git
-cd WSL2-Linux-Kernerl
+cd WSL2-Linux-Kernel
 ```
 Copy config.gz
 ```bash
